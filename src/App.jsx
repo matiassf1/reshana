@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { Input, Button, Card } from 'antd';
+const { TextArea } = Input;
+const { Meta } = Card;
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export const App = () => {
+  const [text, setText] = useState('');
+  const [summary, setSummary] = useState('');
+
+  const handleSummarize = () => {
+    
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <TextArea rows={10} value={text} onChange={(e) => setText(e.target.value)} />
+      <Button type="primary" onClick={handleSummarize}>
+        Resumir
+      </Button>
+      {summary && (
+        <div>
+          <h2>Resumen:</h2>
+          <Card title="Concepto 1">
+            <Meta description="Definición o explicación del concepto 1." />
+          </Card>
+          <Card title="Concepto 2">
+            <Meta description="Definición o explicación del concepto 2." />
+          </Card>
+          <Card title="Concepto 3">
+            <Meta description="Definición o explicación del concepto 3." />
+          </Card>
+          {/* Agrega más tarjetas aquí si es necesario */}
+        </div>
+      )}
     </div>
-  )
+  );
 }
-
-export default App
