@@ -24,9 +24,11 @@ export const App = () => {
       },
     });
 
-    const response = await fetching.json();
+    const data = await fetching.json();
 
-    setSummary(response);
+    setSummary(data);
+
+    localStorage.setItem('cards', JSON.stringify(data));
   };
 
   return (
@@ -84,7 +86,7 @@ export const App = () => {
               <ConceptCard
                 key={index}
                 title={`Concepto numero ${index}`}
-                concept={card[0]}
+                concept={card}
               />
             ))}
           </motion.div>
