@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "antd": "^5.4.2",
+    "framer-motion": "^10.12.2",
     "nltk": "^0.0.1",
     "node-rake": "^1.0.1",
     "react": "^18.2.0",
